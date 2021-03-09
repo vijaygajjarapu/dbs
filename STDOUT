@@ -1,0 +1,29 @@
+@CompareCards
+Feature: Compare the cards and print similarities and differences between cards
+
+  @CompareCards
+  Scenario Outline: Compare Cards                                        [90m# CompareCards.feature:5[0m
+    [36mGiven [0m[36mI navigate to dbs credit cards page[0m
+    [36mWhen [0m[36mI select two cards "<card1>" and "<card2>" on credit cards page[0m
+    [36mThen [0m[36mPrint the similarities and differences between the cards[0m
+
+    Examples: 
+
+  @CompareCards
+  Scenario Outline: Compare Cards                                                                             [90m# CompareCards.feature:12[0m
+    [32mGiven [0m[32mI navigate to dbs credit cards page[0m                                                                 [90m# DbsStepDefs.i_navigate_to_dbs_credit_cards_page()[0m
+    [32mWhen [0m[32mI select two cards "[0m[32m[1mDBS Altitude Visa Signature Card[0m[32m" and "[0m[32m[1mDBS Black Visa Card[0m[32m" on credit cards page[0m [90m# DbsStepDefs.i_select_two_cards_DBS_Altitude_Visa_Signature_Card_and_DBS_Black_Visa_Card_on_credit_cards_page(String,String)[0m
+    [31mThen [0m[31mPrint the similarities and differences between the cards[0m                                             [90m# DbsStepDefs.print_the_similarities_and_differences_between_the_cards()[0m
+      [31morg.assertj.core.api.SoftAssertionError: 
+      The following 3 assertions failed:
+      1) expected:<"[Shopping is the new black]"> but was:<"[It's the fastest way to fly anywhere.]">
+      2) expected:<"[Enjoy great dining privileges with the DBS Lifestyle app.]"> but was:<"[N/A]">
+      3) expected:<"Enjoy [great travel privileges with the DBS Lifestyle app.]"> but was:<"Enjoy [exclusive hotel and travel privileges with DBS Altitude Card]">
+      
+      	at org.assertj.core.error.AssertionErrorCreator.multipleSoftAssertionsError(AssertionErrorCreator.java:75)
+      	at org.assertj.core.api.AbstractSoftAssertions.assertAll(AbstractSoftAssertions.java:38)
+      	at org.assertj.core.api.AbstractSoftAssertions.assertAll(AbstractSoftAssertions.java:43)
+      	at com.dbs.pages.DBSCreditCardsPage.healthCare(DBSCreditCardsPage.java:231)
+      	at com.dbs.stepDefinitions.DbsStepDefs.print_the_similarities_and_differences_between_the_cards(DbsStepDefs.java:45)
+      	at ✽.Then Print the similarities and differences between the cards(CompareCards.feature:8)
+      [0m
